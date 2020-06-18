@@ -1,0 +1,6 @@
+const Types = {
+  UPDATE_SONGS: "UPDATE_SONGS",
+  FAILURE: "FAILURE",
+  UPDATE_SEARCHED_TERM: "UPDATE_SEARCHED_TERM",
+};
+export default Types;
