@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { Input, Row, Col, Space } from "antd";
 import Types from "../../Reducers/actionTypes";
 import SagaActionTypes from "../../Sagas/sagaActionTypes";
+import { isEmptyString } from "../../Helpers/helpers";
 
 const { Search } = Input;
 
@@ -34,11 +35,14 @@ const mapActionsToProps = (dispatch) => ({
       type: Types.UPDATE_SEARCHED_TERM,
       searchedTerm: searchedTerm,
     }),
-  searchSongs: (searchedTerm) =>
-    dispatch({
-      type: SagaActionTypes.SEARCH_SONGS,
-      searchedTerm: searchedTerm,
-    }),
+  searchSongs: (searchedTerm) => {
+    if (!isEmptyString(searchedTerm)) {
+      dispatch({
+        type: SagaActionTypes.SEARCH_SONGS,
+        searchedTerm: searchedTerm,
+      });
+    }
+  },
 });
 
 export default connect(mapStateToProps, mapActionsToProps)(SearchBar);

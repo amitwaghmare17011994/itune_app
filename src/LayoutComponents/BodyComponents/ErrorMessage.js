@@ -1,10 +1,6 @@
 import React from "react";
 import { Empty } from "antd";
 
-const ErrorMessage = () => (
-  <div style={{marginTop:'40%'}}>
-    <Empty />;
-  </div>
-);
+const ErrorMessage = ({msg}) => <Empty description={msg}/>;
 
 export default ErrorMessage;

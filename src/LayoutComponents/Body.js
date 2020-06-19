@@ -12,7 +12,9 @@ export const Body = ({ songs, error, searchedTerm, showLoader }) => (
     {songs && songs.length > 0 && !error ? (
       <Grid songs={songs} />
     ) : error ? (
-      <ErrorMessage />
+      <div className="place_vertical_canter">
+        <ErrorMessage msg="Something went wrong!" />
+      </div>
     ) : (
       <div className="place_vertical_canter">
         {songs && songs.length === 0 ? (
