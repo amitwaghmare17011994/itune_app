@@ -4,6 +4,7 @@ import Grid from "./BodyComponents/Grid";
 import Loader from "./BodyComponents/Loader";
 import EmptyMessage from "./BodyComponents/EmptyMessage";
 import WelcomeMessage from "./BodyComponents/WelcomeMessage";
+import ErrorMessage from "./BodyComponents/ErrorMessage";
 
 export const Body = ({ songs, error, searchedTerm, showLoader }) => (
   <>
@@ -11,7 +12,7 @@ export const Body = ({ songs, error, searchedTerm, showLoader }) => (
     {songs && songs.length > 0 && !error ? (
       <Grid songs={songs} />
     ) : error ? (
-      "Something went wrong"
+      <ErrorMessage />
     ) : (
       <div className="place_vertical_canter">
         {songs && songs.length === 0 ? (

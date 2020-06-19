@@ -1,12 +1,15 @@
 import { isEmptyString } from "../Helpers/helpers";
 import { BASE_URL, FILTER_TERM } from "../Constants/constants";
+import { create } from "apisauce";
 
 export const searchSongsApi = async (term) => {
   return new Promise(async (resolve, reject) => {
     try {
-      const response = await fetch(`${BASE_URL}?term=${term}`)
-        .then((res) => res.json())
-        .then((res) => res);
+      const api = create(BASE_URL);
+      const response = await api
+        .get(`${BASE_URL}?term=${term}`)
+        .then((res) => res.data);
+
       const searchedItems = response.results;
       return resolve(searchedItems);
     } catch (err) {
