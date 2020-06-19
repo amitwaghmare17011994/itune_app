@@ -2,7 +2,9 @@ const { isEmptyString, filterResultBySongs } = require("../helpers")
 
 describe('Testing helper methods', () => {
     it('it should return true for isEmptyString function',()=>{
-        const isEmpty=isEmptyString("");
+        let isEmpty=isEmptyString("");
+        expect(isEmpty).toBe(true);
+        isEmpty = isEmptyString("              ");
         expect(isEmpty).toBe(true);
     })
     it("it should return false for isEmptyString function", () => {
