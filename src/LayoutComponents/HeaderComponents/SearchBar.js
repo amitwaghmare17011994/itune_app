@@ -1,7 +1,7 @@
 import React from "react";
 
 import { connect } from "react-redux";
-import { Input, Row, Col, Space } from "antd";
+import { Input, Row, Col } from "antd";
 import { isEmptyString } from "../../Helpers/helpers";
 import {
   dispatchSetSearchedTerm,

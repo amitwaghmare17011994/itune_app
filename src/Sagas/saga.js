@@ -1,7 +1,6 @@
-import { call, put, takeEvery, takeLatest } from "redux-saga/effects";
+import { call, put, takeEvery } from "redux-saga/effects";
 import SagaActionTypes from "./sagaActionTypes";
 import { searchSongsApi } from "../Services/songs";
-import Types from "../Reducers/actionTypes";
 import { filterResultBySongs } from "../Helpers/helpers";
 import {
   setLoaderAction,

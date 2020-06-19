@@ -1,6 +1,6 @@
 import React from "react";
 import GridItem from "./GridItem";
-import { List, Avatar } from "antd";
+import { List } from "antd";
 
 const Grid = ({ songs = [] }) => (
   <div style={{ padding: 50}}>

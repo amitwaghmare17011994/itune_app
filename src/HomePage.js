@@ -11,10 +11,10 @@ export const HomePage = () => {
       <Header style={{ position: "fixed", zIndex: 1, width: "100%" }}>
         <div>
           <div className="logo">
-            <img src={ItunesIcon} style={{ width: 50 }} />
+            <img src={ItunesIcon} style={{ width: 50 }} alt="Logo" />
           </div>
-            <SearchBar />
-          </div>
+          <SearchBar />
+        </div>
       </Header>
 
       <Content className="content">
