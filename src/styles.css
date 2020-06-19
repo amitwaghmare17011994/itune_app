@@ -32,6 +32,13 @@ body{
 background-color: white !important;
 }
 
+.content{
+  background-color: #394e61;
+  min-height: 100vh;
+  margin-top: 50px;
+}
+
+
 .grid-item{
   background-color: white;
   padding: 20px;

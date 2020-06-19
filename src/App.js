@@ -12,12 +12,7 @@ export default function App() {
         <SearchBar />
       </Header>
       <Content
-        style={{
-          minHeight: "100vh",
-          padding: "50px;",
-          backgroundColor: "#394e61",
-          marginTop: 20,
-        }}
+        className="content"
       >
         <Body />
       </Content>
