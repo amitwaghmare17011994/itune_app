@@ -1,5 +1,4 @@
-import { isEmptyString } from "../Helpers/helpers";
-import { BASE_URL, FILTER_TERM } from "../Constants/constants";
+import { BASE_URL } from "../Constants/constants";
 import { create } from "apisauce";
 
 export const searchSongsApi = async (term) => {

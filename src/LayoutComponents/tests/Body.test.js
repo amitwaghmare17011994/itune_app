@@ -5,6 +5,7 @@ import Grid from "../BodyComponents/Grid";
 import ErrorMessage from "../BodyComponents/ErrorMessage";
 import WelcomeMessage from "../BodyComponents/WelcomeMessage";
 import EmptyMessage from "../BodyComponents/EmptyMessage";
+import Loader from "../BodyComponents/Loader";
 
 describe("Body Tests", () => {
   beforeEach(() => {
@@ -58,9 +59,14 @@ describe("Body Tests", () => {
     const welcomeMessageComponent = rootComponent.findByType(WelcomeMessage);
     expect(welcomeMessageComponent).toBeTruthy();
   });
-  it("it should render EmptyMessage Component",()=>{
+  it("it should render EmptyMessage Component", () => {
     const rootComponent = renderer.create(<Body />).root;
-    const emptyMessageComponent=rootComponent.findAllByType(EmptyMessage);
+    const emptyMessageComponent = rootComponent.findAllByType(EmptyMessage);
     expect(emptyMessageComponent).toBeTruthy();
-  })  
+  });
+  it("it should show loader", () => {
+    const rootComponent = renderer.create(<Body showLoader={true} />).root;
+    const loaderComponent = rootComponent.findByType(Loader);
+    expect(loaderComponent).toBeTruthy();
+  });
 });

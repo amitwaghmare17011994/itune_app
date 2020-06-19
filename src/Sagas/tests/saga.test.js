@@ -39,10 +39,8 @@ describe("Saga TestCases", () => {
     const actionObject = { searchedTerm: "Test Search Term" };
     const generator = cloneableGenerator(fetchSongsWorker)(actionObject);
     sinon.stub(api, "searchSongsApi").callsFake(() => mockResponse);
-
     generator.next();
     generator.next();
-
     searchSongsApi.calledWith("Sample Search");
     const expectedObject = generator.next(mockResponse).value;
     const actualObject = put(setSongsAction(mockResponse));

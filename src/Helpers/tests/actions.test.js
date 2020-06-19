@@ -3,6 +3,7 @@ const {
   setLoaderAction,
   setSongsAction,
   setSearchedTermAction,
+  setErrorMessageAction,
 } = require("../actions");
 const { mockResponse } = require("../../Constants/constants");
 
@@ -28,5 +29,10 @@ describe("Action Tests", () => {
       type: Types.UPDATE_SEARCHED_TERM,
       searchedTerm: "Test Search",
     }).toEqual(setSearchedTermAction("Test Search"));
+  });
+  it("it should return setErrorMessageAction action object", () => {
+    expect({ type: Types.SET_ERROR, errorMessage: "Error" }).toEqual(
+      setErrorMessageAction("Error")
+    );
   });
 });

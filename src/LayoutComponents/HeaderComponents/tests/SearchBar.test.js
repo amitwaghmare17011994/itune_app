@@ -1,7 +1,9 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import { SearchBar } from "../SearchBar";
+import { SearchBar, mapStateToProps, mapActionsToProps } from "../SearchBar";
 import { Input } from "antd";
+import { dispatchSetSearchedTerm, dispatchSearch } from "../searchBarHelpers";
+import { isEmptyString } from "../../../Helpers/helpers";
 const { Search } = Input;
 
 describe("SearchBar Tests", () => {
@@ -52,5 +54,10 @@ describe("SearchBar Tests", () => {
     ).root;
     const searchField = rootComponent.findByType(Search);
     searchField.props.onChange({ target: { value: searchedTerm } });
+  });
+
+  it("it should return mapStateToProps object", () => {
+    const state = mapStateToProps({ songs: { searchedTerm: "Test Search" } });
+    expect({ searchedTerm: "Test Search" }).toEqual(state);
   });
 });

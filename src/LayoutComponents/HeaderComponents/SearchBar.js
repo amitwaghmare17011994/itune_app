@@ -2,9 +2,11 @@ import React from "react";
 
 import { connect } from "react-redux";
 import { Input, Row, Col, Space } from "antd";
-import Types from "../../Reducers/actionTypes";
-import SagaActionTypes from "../../Sagas/sagaActionTypes";
 import { isEmptyString } from "../../Helpers/helpers";
+import {
+  dispatchSetSearchedTerm,
+  dispatchSearch,
+} from "./searchBarHelpers"
 
 const { Search } = Input;
 
@@ -24,23 +26,17 @@ export const SearchBar = ({ searchSongs, searchedTerm, setSearchedTerm }) => (
   </Row>
 );
 
-const mapStateToProps = (state) => {
+export const mapStateToProps = (state) => {
   const { searchedTerm } = state.songs;
   return { searchedTerm };
 };
 
-const mapActionsToProps = (dispatch) => ({
+export const mapActionsToProps = (dispatch) => ({
   setSearchedTerm: (searchedTerm) =>
-    dispatch({
-      type: Types.UPDATE_SEARCHED_TERM,
-      searchedTerm: searchedTerm,
-    }),
+    dispatchSetSearchedTerm(dispatch, searchedTerm),
   searchSongs: (searchedTerm) => {
     if (!isEmptyString(searchedTerm)) {
-      dispatch({
-        type: SagaActionTypes.SEARCH_SONGS,
-        searchedTerm: searchedTerm,
-      });
+      dispatchSearch(searchedTerm);
     }
   },
 });
