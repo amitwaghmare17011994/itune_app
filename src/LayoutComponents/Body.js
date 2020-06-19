@@ -16,7 +16,7 @@ export const Body = ({ songs, error, searchedTerm, showLoader }) => (
     ) : (
       <div className="place_vertical_canter">
         {songs && songs.length === 0 ? (
-          <EmptyMessage />
+          <EmptyMessage msg="Songs Not Found For Searched Term" />
         ) : (
           <center>
             <WelcomeMessage />

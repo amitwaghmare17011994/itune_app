@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Grid Item Tests Renders Grid Item 1`] = `
+<li
+  className="ant-list-item grid-item"
+  onClick={[Function]}
+>
+  <div
+    className="ant-list-item-meta"
+  >
+    <div
+      className="ant-list-item-meta-avatar"
+    >
+      <span
+        className="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-image"
+        style={Object {}}
+      >
+        <img
+          onError={[Function]}
+          src="user.png"
+        />
+      </span>
+    </div>
+    <div
+      className="ant-list-item-meta-content"
+    >
+      <h4
+        className="ant-list-item-meta-title"
+      >
+        <span>
+          Test Track
+        </span>
+      </h4>
+      <div
+        className="ant-list-item-meta-description"
+      >
+        Collection Name
+      </div>
+    </div>
+  </div>
+  <div
+    className="ant-divider ant-divider-vertical"
+    role="separator"
+  />
+</li>
+`;
