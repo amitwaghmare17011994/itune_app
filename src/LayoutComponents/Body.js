@@ -2,16 +2,19 @@ import React from "react";
 import { connect } from "react-redux";
 import Grid from "./BodyComponents/Grid";
 
-const Body = ({ songs, error, searchedTerm }) => (
-  <div>
-    {songs && songs.length > 0 ? (
+const Body = ({ songs, error, searchedTerm, showLoader }) => (
+  <>
+    {songs && songs.length > 0 && !error ? (
       <Grid songs={songs} />
+    ) : error ? (
+      "Something went wrong"
     ) : (
-      songs && songs.length == 0 && "NO SONGS FOUND FOR SEARCHED TERM"
+      songs && songs.length === 0 && "NO SONGS FOUND FOR SEARCHED TERM"
     )}
-  </div>
+  </>
 );
 export default connect((state) => {
   const { data, error, searchedTerm } = state.songs;
-  return { songs: data,searchedTerm, error };
+  const { showLoader } = state.uiStates;
+  return { songs: data, searchedTerm, error, showLoader };
 })(Body);

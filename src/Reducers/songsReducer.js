@@ -10,13 +10,13 @@ export const updateSongs = (state = INITIAL_STATE, action) => {
 export const updateSearchedTerm=(state=INITIAL_STATE,action)=>{
   return {...state,searchedTerm:action.searchedTerm}
 }
-export const setError = (state = INITIAL_STATE, action) => {
+export const updateErrpr = (state = INITIAL_STATE, action) => {
   return { ...state, error: action.isError, songs: null };
 };
 
 export const HANDLERS = {
   [Types.UPDATE_SONGS]: updateSongs,
-  [Types.FAILURE]: setError,
+  [Types.FAILURE]: updateErrpr,
   [Types.UPDATE_SEARCHED_TERM]:updateSearchedTerm
 };
 

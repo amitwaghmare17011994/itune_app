@@ -1,13 +1,26 @@
-import { updateSongs, setSearchedTerm } from "../Helpers/helpers";
+import {
+  isEmptyString,
+  setSongs,
+  setSearchedTerm,
+  setShowLoader,
+} from "../Helpers/helpers";
+import { BASE_URL, FILTER_TERM } from "../Constants/constants";
 
 export const searchSongs = async (term) => {
   try {
-    const response = await fetch(`https://itunes.apple.com/search?term=${term}`)
-      .then((res) => res.json())
-      .then((res) => res);
-    updateSongs(response.results);
-    if (response.results && response.results.length) {
-      setSearchedTerm("");
+    setShowLoader(true);
+    if (!isEmptyString(term)) {
+      const response = await fetch(`${BASE_URL}?term=${term}`)
+        .then((res) => res.json())
+        .then((res) => res);
+      const searchedItems = response.results;
+      setSongs(searchedItems.filter((item) => item.kind === FILTER_TERM));
+      if (searchedItems && searchedItems.length) {
+        setSearchedTerm("");
+      }
+      setShowLoader(false);
     }
-  } catch (err) {}
+  } catch (err) {
+    setShowLoader(false);
+  }
 };

@@ -1,23 +1,29 @@
 import React from "react";
 import { searchSongs } from "../../Services/songs";
 import { connect } from "react-redux";
+import { Input, Row, Col, Space } from "antd";
 import Types from "../../Reducers/actionTypes";
 
+const { Search } = Input;
+
 export const SearchBar = ({ searchedTerm, setSearchedTerm }) => (
-  <div>
-    <input
-      type="text"
-      placeholder="Search"
-      value={searchedTerm || ""}
-      onChange={(e) => setSearchedTerm(e.target.value)}
-    />
-    <button onClick={() => searchSongs(searchedTerm)}>Search</button>
-  </div>
+  <Row align="middle" justify="space-around">
+    <Col span={12}>
+      <div className="space-align-block">
+        <Search
+          placeholder="Search Artist Name"
+          onSearch={searchSongs}
+          onChange={(e) => setSearchedTerm(e.target.value)}
+          enterButton
+          value={searchedTerm}
+        />
+      </div>
+    </Col>
+  </Row>
 );
 
 const mapStateToProps = (state) => {
   const { searchedTerm } = state.songs;
-
   return { searchedTerm };
 };
 
