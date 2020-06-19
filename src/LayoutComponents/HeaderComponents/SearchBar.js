@@ -36,7 +36,7 @@ export const mapActionsToProps = (dispatch) => ({
     dispatchSetSearchedTerm(dispatch, searchedTerm),
   searchSongs: (searchedTerm) => {
     if (!isEmptyString(searchedTerm)) {
-      dispatchSearch(searchedTerm);
+      dispatchSearch(dispatch,searchedTerm);
     }
   },
 });
