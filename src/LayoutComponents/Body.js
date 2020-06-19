@@ -1,15 +1,27 @@
 import React from "react";
 import { connect } from "react-redux";
 import Grid from "./BodyComponents/Grid";
+import Loader from "./BodyComponents/Loader";
+import EmptyMessage from "./BodyComponents/EmptyMessage";
+import WelcomeMessage from "./BodyComponents/WelcomeMessage";
 
-const Body = ({ songs, error, searchedTerm, showLoader }) => (
+export const Body = ({ songs, error, searchedTerm, showLoader }) => (
   <>
+    {showLoader && <Loader />}
     {songs && songs.length > 0 && !error ? (
       <Grid songs={songs} />
     ) : error ? (
       "Something went wrong"
     ) : (
-      songs && songs.length === 0 && "NO SONGS FOUND FOR SEARCHED TERM"
+      <div className="place_vertical_canter">
+        {songs && songs.length === 0 ? (
+          <EmptyMessage />
+        ) : (
+          <center>
+            <WelcomeMessage />
+          </center>
+        )}
+      </div>
     )}
   </>
 );

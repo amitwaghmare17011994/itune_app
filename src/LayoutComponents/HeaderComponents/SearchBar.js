@@ -1,18 +1,19 @@
 import React from "react";
-import { searchSongs } from "../../Services/songs";
+
 import { connect } from "react-redux";
 import { Input, Row, Col, Space } from "antd";
 import Types from "../../Reducers/actionTypes";
+import SagaActionTypes from "../../Sagas/sagaActionTypes";
 
 const { Search } = Input;
 
-export const SearchBar = ({ searchedTerm, setSearchedTerm }) => (
+export const SearchBar = ({ searchSongs, searchedTerm, setSearchedTerm }) => (
   <Row align="middle" justify="space-around">
     <Col span={12}>
       <div className="space-align-block">
         <Search
           placeholder="Search Artist Name"
-          onSearch={searchSongs}
+          onSearch={() => searchSongs(searchedTerm)}
           onChange={(e) => setSearchedTerm(e.target.value)}
           enterButton
           value={searchedTerm}
@@ -31,6 +32,11 @@ const mapActionsToProps = (dispatch) => ({
   setSearchedTerm: (searchedTerm) =>
     dispatch({
       type: Types.UPDATE_SEARCHED_TERM,
+      searchedTerm: searchedTerm,
+    }),
+  searchSongs: (searchedTerm) =>
+    dispatch({
+      type: SagaActionTypes.SEARCH_SONGS,
       searchedTerm: searchedTerm,
     }),
 });

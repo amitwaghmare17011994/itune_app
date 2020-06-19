@@ -7,17 +7,17 @@ export const updateSongs = (state = INITIAL_STATE, action) => {
   return { ...state, error: false, data: action.songs };
 };
 
-export const updateSearchedTerm=(state=INITIAL_STATE,action)=>{
-  return {...state,searchedTerm:action.searchedTerm}
-}
-export const updateErrpr = (state = INITIAL_STATE, action) => {
-  return { ...state, error: action.isError, songs: null };
+export const updateSearchedTerm = (state = INITIAL_STATE, action) => {
+  return { ...state, searchedTerm: action.searchedTerm };
+};
+export const updateError = (state = INITIAL_STATE, action) => {
+  return { ...state, error: action.errorMessage, songs: null };
 };
 
 export const HANDLERS = {
   [Types.UPDATE_SONGS]: updateSongs,
-  [Types.FAILURE]: updateErrpr,
-  [Types.UPDATE_SEARCHED_TERM]:updateSearchedTerm
+  [Types.SET_ERROR]: updateError,
+  [Types.UPDATE_SEARCHED_TERM]: updateSearchedTerm,
 };
 
 export default createReducer(INITIAL_STATE, HANDLERS);

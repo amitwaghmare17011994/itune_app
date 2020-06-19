@@ -1,26 +1,16 @@
-import {
-  isEmptyString,
-  setSongs,
-  setSearchedTerm,
-  setShowLoader,
-} from "../Helpers/helpers";
+import { isEmptyString } from "../Helpers/helpers";
 import { BASE_URL, FILTER_TERM } from "../Constants/constants";
 
-export const searchSongs = async (term) => {
-  try {
-    setShowLoader(true);
-    if (!isEmptyString(term)) {
+export const searchSongsApi = async (term) => {
+  return new Promise(async (resolve, reject) => {
+    try {
       const response = await fetch(`${BASE_URL}?term=${term}`)
         .then((res) => res.json())
         .then((res) => res);
       const searchedItems = response.results;
-      setSongs(searchedItems.filter((item) => item.kind === FILTER_TERM));
-      if (searchedItems && searchedItems.length) {
-        setSearchedTerm("");
-      }
-      setShowLoader(false);
+      return resolve(searchedItems);
+    } catch (err) {
+      return reject(err);
     }
-  } catch (err) {
-    setShowLoader(false);
-  }
+  });
 };
