@@ -3,7 +3,7 @@ import renderer from "react-test-renderer";
 
 import GridItem from "../GridItem";
 import { Avatar } from "antd";
-const UserImage = require("../../../Assests/Images/user.png");
+import UserImage from "../../../Assests/Images/user.png";
 
 
 describe("Grid Item Tests", () => {

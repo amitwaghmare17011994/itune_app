@@ -12,12 +12,16 @@ exports[`Grid Item Tests Renders Grid Item 1`] = `
       className="ant-list-item-meta-avatar"
     >
       <span
-        className="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-image"
+        className="ant-avatar ant-avatar-lg ant-avatar-circle"
         style={Object {}}
       >
-        <img
-          onError={[Function]}
-          src="user.png"
+        <span
+          className="ant-avatar-string"
+          style={
+            Object {
+              "opacity": 0,
+            }
+          }
         />
       </span>
     </div>

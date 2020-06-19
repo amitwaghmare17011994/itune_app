@@ -1,7 +1,7 @@
 import React from "react";
 import { List, Avatar, Divider } from "antd";
 import { gotoURL } from "../../Helpers/helpers";
-const UserImage = require("../../Assests/Images/user.png");
+import UserImage from "../../Assests/Images/user.png";
 
 const GridItem = ({ song }) => (
   <List.Item
