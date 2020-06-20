@@ -1,4 +1,9 @@
-const { isEmptyString, filterResultBySongs, gotoURL } = require("../helpers");
+const {
+  isEmptyString,
+  filterResultBySongs,
+  gotoURL,
+  filterResultBySongsSelector,
+} = require("../helpers");
 
 describe("Testing helper methods", () => {
   it("it should return true for isEmptyString function", () => {
@@ -25,5 +30,10 @@ describe("Testing helper methods", () => {
     global.open = jest.fn();
     gotoURL("Test url");
     expect(global.open).toBeCalled();
+  });
+  it("it should return filtered data by selector", () => {
+    const testArray = [{ kind: "movie" }, { kind: "song" }, { kind: "story" }];
+    const expectedResult = [{ kind: "song" }];
+    expect(expectedResult).toEqual(filterResultBySongsSelector(testArray));
   });
 });
