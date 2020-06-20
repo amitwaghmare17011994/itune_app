@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 
 import store from "../../Store/store";
 import { updateStoreData } from "../../Helpers/actions";
+import { LANGUAGES } from "../../Constants/constants";
 
 const onClick = ({ key }) => {
   store.dispatch(updateStoreData({ selectedLanguage: key }));
@@ -13,8 +14,9 @@ const onClick = ({ key }) => {
 
 const menu = (
   <Menu onClick={onClick}>
-    <Menu.Item key={LOCALES.ENGLISH}>English</Menu.Item>
-    <Menu.Item key={LOCALES.FRENCH}>French</Menu.Item>
+    {LANGUAGES.map((language, index) => (
+      <Menu.Item key={language.key}>{language.label}</Menu.Item>
+    ))}
   </Menu>
 );
 
