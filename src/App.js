@@ -8,12 +8,12 @@ import { IntlWrapper } from "./i189/IntlWrapper";
 import { LOCALES } from "./i189/locales";
 import { connect } from "react-redux";
 
-export function App({ selectedLanguge = LOCALES.ENGLISH }) {
-  console.log(selectedLanguge);
-  
+export function App({ selectedLanguage = LOCALES.ENGLISH }) {
+  console.log({ selectedLanguage });
+
   return (
     <Router>
-      <IntlWrapper locale={selectedLanguge}>
+      <IntlWrapper locale={selectedLanguage}>
         <Switch>
           <Route path="/" exact component={HomePage} />
           <Route path="*" component={PageNotFound} />
@@ -23,4 +23,6 @@ export function App({ selectedLanguge = LOCALES.ENGLISH }) {
   );
 }
 
-export default connect((state) => state.songs.selectedLanguge)(App);
+export default connect((state) => {
+  return { selectedLanguage: state.songs.selectedLanguage };
+})(App);
