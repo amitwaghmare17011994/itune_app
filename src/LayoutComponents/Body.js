@@ -5,7 +5,7 @@ import Loader from "./BodyComponents/Loader";
 import EmptyMessage from "./BodyComponents/EmptyMessage";
 import WelcomeMessage from "./BodyComponents/WelcomeMessage";
 import ErrorMessage from "./BodyComponents/ErrorMessage";
-
+import { filterResultBySongsSelector } from "../Helpers/helpers";
 export const Body = ({ songs, error, searchedTerm, showLoader }) => (
   <>
     {showLoader && <Loader />}
@@ -30,6 +30,10 @@ export const Body = ({ songs, error, searchedTerm, showLoader }) => (
 );
 export default connect((state) => {
   const { data, error, searchedTerm, showLoader } = state.songs;
-
-  return { songs: data, searchedTerm, error, showLoader };
+  return {
+    songs: data && filterResultBySongsSelector(data),
+    searchedTerm,
+    error,
+    showLoader,
+  };
 })(Body);
