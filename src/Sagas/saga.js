@@ -5,6 +5,7 @@ import {
   setLoaderAction,
   setSongsAction,
   setErrorMessageAction,
+  setSearchedTermAction,
 } from "../Helpers/actions";
 
 export function* fetchSongsWorker(action) {
@@ -13,6 +14,7 @@ export function* fetchSongsWorker(action) {
     yield put(setLoaderAction(true));
     const response = yield call(searchSongsApi, searchedTerm);
     yield put(setSongsAction(response));
+    yield put(setSearchedTermAction("")) // remove text from search field
     yield put(setLoaderAction(false));
   } catch (e) {
     yield put(setErrorMessageAction(e.message));
