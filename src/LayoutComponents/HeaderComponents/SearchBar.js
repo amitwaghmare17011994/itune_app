@@ -15,7 +15,7 @@ export const SearchBar = ({ searchSongs, searchedTerm, setSearchedTerm }) => (
     <Col span={12}>
       <div className="space-align-block">
         <Search
-          placeholder="Search Artist Name"
+          placeholder="Search for Songs, Artist"
           onSearch={() => searchSongs(searchedTerm)}
           onChange={(e) => setSearchedTerm(e.target.value)}
           enterButton
