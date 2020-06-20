@@ -1,7 +1,7 @@
 import React from "react";
 import { DownOutlined } from "@ant-design/icons";
 import { Menu, Dropdown, message } from "antd";
-import { LOCALES } from "../../i189/locales";
+import { LOCALES, LOCALES_LABELS } from "../../i189/locales";
 import { connect } from "react-redux";
 
 import store from "../../Store/store";
@@ -18,18 +18,18 @@ const menu = (
   </Menu>
 );
 
-export const LanguageSelector = () => {
+export const LanguageSelector = ({ selectedLanguage = LOCALES.ENGLISH }) => {
   return (
     <div>
       <Dropdown overlay={menu}>
         <a className="dropdown-link" onClick={(e) => e.preventDefault()}>
-          Hover me, Click menu item <DownOutlined />
+          {LOCALES_LABELS[selectedLanguage]} <DownOutlined />
         </a>
       </Dropdown>
     </div>
   );
 };
 
-export default connect((state) => state.songs.selectedLanguage)(
-  LanguageSelector
-);
+export default connect((state) => ({
+  selectedLanguage: state.songs.selectedLanguage,
+}))(LanguageSelector);
