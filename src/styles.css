@@ -15,9 +15,8 @@ body{
 }
 
 .space-align-block {
-  margin: 8px 4px;
+  margin: 10px 4px;
   padding: 4px;
-  flex: none;
 }
 .overlay {
   position: fixed;
