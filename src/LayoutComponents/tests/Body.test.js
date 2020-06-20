@@ -3,8 +3,6 @@ import renderer from "react-test-renderer";
 import { Body } from "../Body";
 import Grid from "../BodyComponents/Grid";
 import ErrorMessage from "../BodyComponents/ErrorMessage";
-import WelcomeMessage from "../BodyComponents/WelcomeMessage";
-import EmptyMessage from "../BodyComponents/EmptyMessage";
 import Loader from "../BodyComponents/Loader";
 
 describe("Body Tests", () => {
@@ -54,18 +52,8 @@ describe("Body Tests", () => {
     const errorMessageComponent = rootComponent.findByType(ErrorMessage);
     expect(errorMessageComponent).toBeTruthy();
   });
-  it("it should render welcome message component", () => {
-    const rootComponent = renderer.create(<Body />).root;
-    const welcomeMessageComponent = rootComponent.findByType(WelcomeMessage);
-    expect(welcomeMessageComponent).toBeTruthy();
-  });
-  it("it should render EmptyMessage Component", () => {
-    const rootComponent = renderer.create(<Body />).root;
-    const emptyMessageComponent = rootComponent.findAllByType(EmptyMessage);
-    expect(emptyMessageComponent).toBeTruthy();
-  });
-  it("it should show loader", () => {
-    const rootComponent = renderer.create(<Body showLoader={true} />).root;
+    it("it should show loader", () => {
+    const rootComponent = renderer.create(<Body showLoader={true} songs={[]} />).root;
     const loaderComponent = rootComponent.findByType(Loader);
     expect(loaderComponent).toBeTruthy();
   });

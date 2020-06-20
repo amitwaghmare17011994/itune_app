@@ -1,6 +1,12 @@
 import React from "react";
+import { injectIntl } from "react-intl";
 
-const WelcomeMessage = () => {
-  return <h2 style={{ color: "white", fontSize: 35 }}>Welcome to ItuneApp</h2>;
+export const WelcomeMessage = ({ intl }) => {
+  return (
+    <h2 style={{ color: "white", fontSize: 35 }}>
+      {intl.formatMessage({ id: "Welcome" })}
+      <span> ItuneApp </span>
+    </h2>
+  );
 };
-export default WelcomeMessage;
+export default injectIntl(WelcomeMessage);

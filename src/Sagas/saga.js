@@ -1,24 +1,24 @@
 import { call, put, takeEvery } from "redux-saga/effects";
 import SagaActionTypes from "./sagaActionTypes";
 import { searchSongsApi } from "../Services/songs";
-import {
-  setLoaderAction,
-  setSongsAction,
-  setErrorMessageAction,
-  setSearchedTermAction,
-} from "../Helpers/actions";
+import { updateStoreData } from "../Helpers/actions";
 
 export function* fetchSongsWorker(action) {
   try {
     const { searchedTerm } = action;
-    yield put(setLoaderAction(true));
+
+    yield put(updateStoreData({ showLoader: true }));
     const response = yield call(searchSongsApi, searchedTerm);
-    yield put(setSongsAction(response));
-    yield put(setSearchedTermAction("")) // remove text from search field
-    yield put(setLoaderAction(false));
+    if (response) {
+      yield put(updateStoreData({ data: response }));
+      yield put(updateStoreData({ searchedTerm: "" }));
+      yield put(updateStoreData({ showLoader: false }));
+    } else {
+      throw {message:"No Response Found"};
+    }
   } catch (e) {
-    yield put(setErrorMessageAction(e.message));
-    yield put(setLoaderAction(false));
+    yield put(updateStoreData({ error: e.message }));
+    yield put(updateStoreData({ showLoader: false }));
   }
 }
 

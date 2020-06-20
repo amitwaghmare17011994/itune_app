@@ -1,10 +1,10 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import { SearchBar, mapStateToProps, mapActionsToProps } from "../SearchBar";
+import { SearchBar, mapStateToProps } from "../SearchBar";
 import { Input } from "antd";
-import { dispatchSetSearchedTerm, dispatchSearch } from "../searchBarHelpers";
-import { isEmptyString } from "../../../Helpers/helpers";
 const { Search } = Input;
+
+export const mockIntlObject = { formatMessage: (value) => {} };
 
 describe("SearchBar Tests", () => {
   let searchedTerm;
@@ -25,7 +25,7 @@ describe("SearchBar Tests", () => {
 
   it("it should render search bar", () => {
     const tree = renderer
-      .create(<SearchBar searchedTerm={searchedTerm} />)
+      .create(<SearchBar intl={mockIntlObject} searchedTerm={searchedTerm} />)
       .toJSON();
 
     expect(tree).toMatchSnapshot();
@@ -35,7 +35,11 @@ describe("SearchBar Tests", () => {
       expect(searchedTermValue).toBe(searchedTerm);
     };
     const rootComponent = renderer.create(
-      <SearchBar searchedTerm={searchedTerm} searchSongs={mockOnSearch} />
+      <SearchBar
+        intl={mockIntlObject}
+        searchedTerm={searchedTerm}
+        searchSongs={mockOnSearch}
+      />
     ).root;
     const searchField = rootComponent.findByType(Search);
     searchField.props.onSearch();
@@ -49,6 +53,7 @@ describe("SearchBar Tests", () => {
     const rootComponent = renderer.create(
       <SearchBar
         searchedTerm={searchedTerm}
+        intl={mockIntlObject}
         setSearchedTerm={mockSetSearchedTerm}
       />
     ).root;
