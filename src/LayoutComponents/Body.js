@@ -5,6 +5,7 @@ import Loader from "./BodyComponents/Loader";
 import EmptyMessage from "./BodyComponents/EmptyMessage";
 import WelcomeMessage from "./BodyComponents/WelcomeMessage";
 import ErrorMessage from "./BodyComponents/ErrorMessage";
+import { filterResultBySongsSelector } from "../Helpers/helpers";
 
 export const Body = ({ songs, error, searchedTerm, showLoader }) => (
   <>
@@ -31,5 +32,10 @@ export const Body = ({ songs, error, searchedTerm, showLoader }) => (
 export default connect((state) => {
   const { data, error, searchedTerm } = state.songs;
   const { showLoader } = state.uiStates;
-  return { songs: data, searchedTerm, error, showLoader };
+  return {
+    songs: data ? filterResultBySongsSelector(data) : null,  // songs null to show welcome message
+    searchedTerm,
+    error,
+    showLoader,
+  };
 })(Body);

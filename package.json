@@ -24,15 +24,15 @@
     "redux": "^4.0.5",
     "redux-saga": "^1.1.3",
     "reduxsauce": "^1.1.3",
+    "reselect": "^4.0.0",
     "sinon": "^9.0.2"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "jest",
-    "test-update-snapshot":"jest --updateSnapshot",
+    "test-update-snapshot": "jest --updateSnapshot",
     "eject": "react-scripts eject"
-    
   },
   "eslintConfig": {
     "extends": "react-app"
