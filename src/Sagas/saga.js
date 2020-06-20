@@ -14,7 +14,7 @@ export function* fetchSongsWorker(action) {
       yield put(updateStoreData({ searchedTerm: "" }));
       yield put(updateStoreData({ showLoader: false }));
     } else {
-      throw {message:"No Response Found"};
+      throw new Error("No Response Found");
     }
   } catch (e) {
     yield put(updateStoreData({ error: e.message }));

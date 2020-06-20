@@ -1,6 +1,6 @@
 import React from "react";
 import { DownOutlined } from "@ant-design/icons";
-import { Menu, Dropdown, message } from "antd";
+import { Menu, Dropdown } from "antd";
 import { LOCALES, LOCALES_LABELS } from "../../i189/locales";
 import { connect } from "react-redux";
 
@@ -22,9 +22,9 @@ export const LanguageSelector = ({ selectedLanguage = LOCALES.ENGLISH }) => {
   return (
     <div>
       <Dropdown overlay={menu}>
-        <a className="dropdown-link" onClick={(e) => e.preventDefault()}>
+        <span className="dropdown-link" onClick={(e) => e.preventDefault()}>
           {LOCALES_LABELS[selectedLanguage]} <DownOutlined />
-        </a>
+        </span>
       </Dropdown>
     </div>
   );

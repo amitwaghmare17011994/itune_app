@@ -4,7 +4,7 @@ import "@testing-library/jest-dom/extend-expect";
 import EmptyMessage from "../EmptyMessage";
 
 test("renders a message", () => {
-  const { container, getByText } = render(
+  const {  getByText } = render(
     <EmptyMessage msg="Songs Not Found For Searched Term" />
   );
   expect(getByText("Songs Not Found For Searched Term")).toBeInTheDocument();

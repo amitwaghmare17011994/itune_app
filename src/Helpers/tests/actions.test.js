@@ -1,5 +1,4 @@
 const { default: Types } = require("../../Reducers/actionTypes");
-const { mockResponse } = require("../../Constants/constants");
 const { updateStoreData } = require("../actions");
 
 describe("Action Tests", () => {

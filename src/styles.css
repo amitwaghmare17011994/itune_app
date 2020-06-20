@@ -1,13 +1,13 @@
 @import "~antd/dist/antd.css";
 
-body{
+body {
   background-color: #eef0f1;
 }
 .logo {
   width: 120px;
   height: 61px;
   float: left;
-  }
+}
 
 .App {
   font-family: sans-serif;
@@ -32,30 +32,29 @@ body{
   left: 50%;
   position: relative;
 }
-.ant-spin-dot-item{
-background-color: white !important;
+.ant-spin-dot-item {
+  background-color: white !important;
 }
 
-.content{
+.content {
   background-color: #394e61;
-  min-height: 90vh;
-  margin-top: 61px;
-  
+  min-height: 100vh;
 }
-.dropdown-link{
-  color:white;
+.dropdown-link {
+  color: white;
+  cursor: pointer;
 }
 
-.grid-item{
+.grid-item {
   background-color: white;
   padding: 20px;
   cursor: pointer;
   margin-top: 1px;
 }
-.place_vertical_canter{
+.place_vertical_canter {
   margin-top: 20%;
 }
-.empty_message{
+.empty_message {
   color: white;
   font-weight: bold;
   font-size: larger;
