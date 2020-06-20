@@ -6,11 +6,14 @@ import HomePage from "./HomePage";
 import PageNotFound from "./PageNotFound";
 import { IntlWrapper } from "./i189/IntlWrapper";
 import { LOCALES } from "./i189/locales";
+import { connect } from "react-redux";
 
-export default function App() {
+export function App({ selectedLanguge = LOCALES.ENGLISH }) {
+  console.log(selectedLanguge);
+  
   return (
     <Router>
-      <IntlWrapper locale={LOCALES.FRENCH}>
+      <IntlWrapper locale={selectedLanguge}>
         <Switch>
           <Route path="/" exact component={HomePage} />
           <Route path="*" component={PageNotFound} />
@@ -19,3 +22,5 @@ export default function App() {
     </Router>
   );
 }
+
+export default connect((state) => state.songs.selectedLanguge)(App);

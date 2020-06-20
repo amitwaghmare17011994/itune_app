@@ -42,7 +42,9 @@ background-color: white !important;
   margin-top: 61px;
   
 }
-
+.dropdown-link{
+  color:white;
+}
 
 .grid-item{
   background-color: white;
