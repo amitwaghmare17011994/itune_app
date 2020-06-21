@@ -19,4 +19,4 @@ Launches the test runner in the interactive watch mode.<br />
 Launches the test runner with code coverage table
 
 
-![Screenshot (5)](https://user-images.githubusercontent.com/38164439/85216220-dc95b680-b30c-11ea-9af9-358f73452d00.png)
+![Screenshot (4)](https://user-images.githubusercontent.com/38164439/85216256-3bf3c680-b30d-11ea-9c32-0f57e66f7a2e.png)
