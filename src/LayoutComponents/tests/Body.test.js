@@ -52,9 +52,4 @@ describe("Body Tests", () => {
     const errorMessageComponent = rootComponent.findByType(ErrorMessage);
     expect(errorMessageComponent).toBeTruthy();
   });
-    it("it should show loader", () => {
-    const rootComponent = renderer.create(<Body showLoader={true} songs={[]} />).root;
-    const loaderComponent = rootComponent.findByType(Loader);
-    expect(loaderComponent).toBeTruthy();
-  });
 });
