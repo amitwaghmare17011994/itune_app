@@ -20,9 +20,12 @@ const menu = (
   </Menu>
 );
 
-export const LanguageSelector = ({ selectedLanguage = LOCALES.ENGLISH }) => {
+export const LanguageSelector = ({
+  selectedLanguage = LOCALES.ENGLISH,
+  styles = {},
+}) => {
   return (
-    <div>
+    <div style={{ ...styles }}>
       <Dropdown overlay={menu}>
         <span className="dropdown-link" onClick={(e) => e.preventDefault()}>
           {LOCALES_LABELS[selectedLanguage]} <DownOutlined />

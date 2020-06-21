@@ -12,14 +12,14 @@ export const HomePage = () => {
     <Layout>
       <Header style={{ position: "fixed", zIndex: 1, width: "100%" }}>
         <div style={{ display: "flex" }}>
-          <div className="logo">
+          <div className="logo" >
             <img src={ItunesIcon} style={{ width: 50 }} alt="Logo" />
           </div>
-          <div style={{ flex: 3 }}>
+          <div className="search-bar">
             <SearchBar />
           </div>
-          <div style={{ flex: 1 }}>
-            <LanguageSelector />
+          <div class="language-selector">
+            <LanguageSelector styles={{ float: "right" }} />
           </div>
         </div>
       </Header>

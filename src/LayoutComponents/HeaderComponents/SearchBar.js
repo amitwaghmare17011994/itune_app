@@ -16,7 +16,7 @@ export const SearchBar = ({
   setSearchedTerm,
 }) => (
   <Row align="middle" justify="space-around">
-    <Col span={12}>
+    <Col span={12} xs={24}>
       <div className="space-align-block">
         <Search
           placeholder={intl.formatMessage({ id: "SearchFor" })}
