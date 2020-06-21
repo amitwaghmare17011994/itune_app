@@ -44,7 +44,8 @@ body {
 
 .content {
   background-color: #394e61;
-  min-height: 100vh;
+  min-height: 97vh;
+  margin-top: 20px;
 }
 .dropdown-link {
   color: white;
