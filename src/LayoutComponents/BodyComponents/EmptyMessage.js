@@ -1,12 +1,13 @@
 import React from "react";
 import { Empty } from "antd";
+import { injectIntl } from "react-intl";
 
-const EmptyMessage = ({ msg }) => (
+const EmptyMessage = ({ msg, intl }) => (
   <Empty
-    description={msg}
+    description={intl.formatMessage({id:'SongNotFound',value:msg})}
     className="empty_message"
     image={Empty.PRESENTED_IMAGE_SIMPLE}
   />
 );
 
-export default EmptyMessage;
+export default injectIntl(EmptyMessage);

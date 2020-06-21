@@ -5,5 +5,6 @@ export default {
     Welcome: "Bienvenue",
     PageNotFound: "Page non trouvée",
     SearchFor: "Rechercher chanson ,artiste ",
+    SongNotFound: "Chansons introuvables pour le terme recherché",
   },
 };
