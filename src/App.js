@@ -9,8 +9,6 @@ import { LOCALES } from "./i189/locales";
 import { connect } from "react-redux";
 
 export function App({ selectedLanguage = LOCALES.ENGLISH }) {
-  console.log({ selectedLanguage });
-
   return (
     <Router>
       <IntlWrapper locale={selectedLanguage}>
