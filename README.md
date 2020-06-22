@@ -20,3 +20,8 @@ Launches the test runner with code coverage table
 
 
 ![Screenshot (4)](https://user-images.githubusercontent.com/38164439/85216256-3bf3c680-b30d-11ea-9c32-0f57e66f7a2e.png)
+
+![Screenshot (7)](https://user-images.githubusercontent.com/38164439/85244988-3069d380-b3d1-11ea-840e-dcf289c22232.png)
+![Screenshot (8)](https://user-images.githubusercontent.com/38164439/85244992-32339700-b3d1-11ea-937c-a863316ef005.png)
+![Screenshot (9)](https://user-images.githubusercontent.com/38164439/85244996-32339700-b3d1-11ea-8cef-13c0f3e7b7cb.png)
+![Screenshot (6)](https://user-images.githubusercontent.com/38164439/85244998-32cc2d80-b3d1-11ea-9fd2-7d1563f9a6fe.png)
