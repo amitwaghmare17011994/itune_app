@@ -10,9 +10,9 @@ export function* fetchSongsWorker(action) {
     yield put(updateStoreData({ showLoader: true }));
     const response = yield call(searchSongsApi, searchedTerm);
     if (response) {
-      yield put(updateStoreData({ data: response }));
-      yield put(updateStoreData({ searchedTerm: "" }));
-      yield put(updateStoreData({ showLoader: false }));
+      yield put(
+        updateStoreData({ data: response, searchedTerm: "", showLoader: false })
+      );
     } else {
       throw new Error("No Response Found");
     }
